@@ -25,6 +25,7 @@
         <Ellipse HorizontalAlignment="Left" Height="100" Margin="267,313,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED2" Grid.ColumnSpan="2"/>
         <Ellipse HorizontalAlignment="Left" Height="100" Margin="96,313,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED3" Grid.Column="1"/>
         <Ellipse HorizontalAlignment="Left" Height="100" Margin="258,313,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED4" Grid.Column="1"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="152,217,0,0" VerticalAlignment="Top"/>
 
     </Grid>
     <!--</Viewbox>-->
