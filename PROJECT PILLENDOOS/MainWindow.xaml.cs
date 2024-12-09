@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Runtime.Serialization;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,6 +24,7 @@ namespace PROJECT_PILLENDOOS
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Start();
             timer.Tick += Timer_Tick;
+            
 
         }
         private void Timer_Tick(object? sender, EventArgs e)

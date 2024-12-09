@@ -13,6 +13,8 @@
                 <StackPanel>
                     <Button Content="Start" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Width="100" Click="Button_Start" Margin="0,10,0,0" Name="Btn_Start"/>
                     <Button Content="Settings" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="100" Click="Button_Settings" Margin="0,10,0,0" Name="B_Settings"/>
+                    
+                   
                 </StackPanel>
             </GroupBox>
 
@@ -33,21 +35,22 @@
                     <Ellipse HorizontalAlignment="Left" Height="100" Margin="129,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED2"/>
                     <Ellipse HorizontalAlignment="Left" Height="100" Margin="267,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED3"/>
                     <Ellipse HorizontalAlignment="Left" Height="100" Margin="417,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED4"/>
-                    <Button Content="Back" HorizontalAlignment="Left" Margin="192,3,0,0" VerticalAlignment="Top" Width="103" Click="Button_Back" RenderTransformOrigin="0.504,0.543"/>
+                    <Button Content="Back" HorizontalAlignment="Left" Margin="214,-123,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="Button_Back" RenderTransformOrigin="0.504,0.543"/>
                     <Button Content="Button" HorizontalAlignment="Left" Margin="156,115,0,0" VerticalAlignment="Top"/>
                     <Button Content="Button" HorizontalAlignment="Left" Margin="297,112,0,0" VerticalAlignment="Top"/>
                     <Button Content="Button" HorizontalAlignment="Left" Margin="447,112,0,0" VerticalAlignment="Top"/>
+                   
                 </Grid>
             </GroupBox>
 
 
             <GroupBox Header="Settings" Margin="0,200,0,0" Name="Settingsbox" Visibility="Hidden">
                 <Grid>
-                    <Button Content="Back" HorizontalAlignment="Left" Margin="214,-116,0,0" VerticalAlignment="Top" Width="103" Click="Button_Back" />
+                    <Button Content="Back" HorizontalAlignment="Left" Margin="214,-116,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="Button_Back" />
 
                 </Grid>
             </GroupBox>
-
+           
 
         </Grid>
     </Viewbox>
