@@ -24,7 +24,9 @@ namespace PROJECT_PILLENDOOS
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Start();
             timer.Tick += Timer_Tick;
-            
+            Settingsbox.Visibility = Visibility.Hidden;
+            Start3.Visibility = Visibility.Hidden;
+
 
         }
         private void Timer_Tick(object? sender, EventArgs e)

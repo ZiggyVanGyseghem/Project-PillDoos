@@ -9,49 +9,47 @@
 
     <Viewbox Stretch="Uniform">
         <Grid Width="540">
-            <GroupBox Header="Controls" Visibility="Visible" Margin="0,0,0,200" Name="Controls">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="307*"/>
+                <RowDefinition Height="170*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Controls" Visibility="Hidden" Margin="0,0,0,30" Name="Controls">
                 <StackPanel>
                     <Button Content="Start" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Width="100" Click="Button_Start" Margin="0,10,0,0" Name="Btn_Start"/>
                     <Button Content="Settings" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="100" Click="Button_Settings" Margin="0,10,0,0" Name="B_Settings"/>
-                    
-                   
                 </StackPanel>
             </GroupBox>
 
 
             <GroupBox Header="Start" Margin="0,200,0,0" Name="Start3" Visibility="Visible">
                 <Grid Margin="0,0,-12,0">
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="27,115,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.629,0.614"/>
-                    <Label Content="Eerste box" HorizontalAlignment="Left" Height="26" Margin="13,17,0,0" VerticalAlignment="Top" Width="68"/>
-                    <Label Content="Tweede box" HorizontalAlignment="Left" Margin="142,17,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Derde box" HorizontalAlignment="Left" Margin="284,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.536,0.509"/>
-                    <Label Content="Vierde box" HorizontalAlignment="Left" Margin="429,17,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="43,115,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.629,0.614"/>
+                    <Label Content="Eerste box" HorizontalAlignment="Left" Height="26" Margin="29,17,0,0" VerticalAlignment="Top" Width="68"/>
+                    <Label Content="Tweede box" HorizontalAlignment="Left" Margin="155,17,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Derde box" HorizontalAlignment="Left" Margin="294,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.536,0.509"/>
+                    <Label Content="Vierde box" HorizontalAlignment="Left" Margin="433,17,0,0" VerticalAlignment="Top"/>
                     <Label Content="" HorizontalAlignment="Left" Height="32" Margin="438,0,0,0" VerticalAlignment="Top" Width="58" Name="LBLTime" Grid.Column="1"/>
-                    <TextBox HorizontalAlignment="Left" Margin="119,48,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Margin="257,48,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Margin="-13,48,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Margin="132,48,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Margin="267,48,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Margin="3,48,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
                     <TextBox HorizontalAlignment="Left" Margin="407,48,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="-3,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED1"/>
-                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="129,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED2"/>
-                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="267,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED3"/>
+                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="13,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED1"/>
+                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="142,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED2"/>
+                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="277,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED3"/>
                     <Ellipse HorizontalAlignment="Left" Height="100" Margin="417,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED4"/>
                     <Button Content="Back" HorizontalAlignment="Left" Margin="214,-123,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="Button_Back" RenderTransformOrigin="0.504,0.543"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="156,115,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="297,112,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="447,112,0,0" VerticalAlignment="Top"/>
-                   
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="172,115,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="307,115,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="447,0,0,0" VerticalAlignment="Center"/>
                 </Grid>
             </GroupBox>
 
 
-            <GroupBox Header="Settings" Margin="0,200,0,0" Name="Settingsbox" Visibility="Hidden">
+            <GroupBox Header="Settings" Margin="0,200,0,0" Name="Settingsbox" Visibility="Hidden" Grid.RowSpan="2">
                 <Grid>
                     <Button Content="Back" HorizontalAlignment="Left" Margin="214,-116,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="Button_Back" />
-
                 </Grid>
             </GroupBox>
-           
-
         </Grid>
     </Viewbox>
 </Window>
