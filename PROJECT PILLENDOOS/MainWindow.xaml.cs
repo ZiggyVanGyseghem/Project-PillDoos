@@ -38,18 +38,23 @@ namespace PROJECT_PILLENDOOS
         }
         private void Button_Start(object sender, RoutedEventArgs e)
         {
-            Button_Start.hide();
-
+            Controls.Visibility = Visibility.Hidden;
+            Start3.Visibility = Visibility.Visible;
 
 
         }
 
         private void Button_Settings(object sender, RoutedEventArgs e)
         {
-
+            Controls.Visibility = Visibility.Hidden;
+            Settingsbox.Visibility = Visibility.Visible;
         }
 
-
-       
+        private void Button_Back (object sender, RoutedEventArgs e)
+        {
+          Controls.Visibility = Visibility.Visible;
+          Start3.Visibility = Visibility.Hidden;
+          Settingsbox.Visibility = Visibility.Hidden;
+        }
     }
 }
