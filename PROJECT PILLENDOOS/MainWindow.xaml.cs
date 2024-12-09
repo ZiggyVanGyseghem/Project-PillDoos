@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.IO.Ports;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,6 +18,7 @@ namespace PROJECT_PILLENDOOS
     /// Interaction logic for MainWindow.xaml
      public partial class MainWindow : Window
     {
+        SerialPort _serialPort;
         public MainWindow()
         {
             InitializeComponent();
@@ -26,6 +28,9 @@ namespace PROJECT_PILLENDOOS
             timer.Tick += Timer_Tick;
             Settingsbox.Visibility = Visibility.Hidden;
             Start3.Visibility = Visibility.Hidden;
+            Controls.Visibility = Visibility.Visible;
+            _serialPort = new SerialPort();
+
 
 
         }
@@ -59,6 +64,25 @@ namespace PROJECT_PILLENDOOS
           Controls.Visibility = Visibility.Visible;
           Start3.Visibility = Visibility.Hidden;
           Settingsbox.Visibility = Visibility.Hidden;
+        }
+
+        private void cbxComPorts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_serialPort != null)
+            {
+                if (_serialPort.IsOpen)
+                    _serialPort.Close();
+
+                if (cbxComPorts.SelectedItem.ToString() != "None")
+                {
+                    _serialPort.PortName = cbxComPorts.SelectedItem.ToString();
+                    _serialPort.Open();
+
+                }
+              
+                    
+            }
+
         }
     }
 }

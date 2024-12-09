@@ -21,7 +21,7 @@
             </GroupBox>
 
 
-            <GroupBox Header="Start" Margin="0,200,0,0" Name="Start3" Visibility="Visible">
+            <GroupBox Header="Start" Margin="0,200,0,0" Name="Start3" Visibility="Hidden">
                 <Grid Margin="0,0,-12,0">
                     <Button Content="Button" HorizontalAlignment="Left" Margin="43,115,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.629,0.614"/>
                     <Label Content="Eerste box" HorizontalAlignment="Left" Height="26" Margin="29,17,0,0" VerticalAlignment="Top" Width="68"/>
@@ -45,9 +45,12 @@
             </GroupBox>
 
 
-            <GroupBox Header="Settings" Margin="0,200,0,0" Name="Settingsbox" Visibility="Hidden" Grid.RowSpan="2">
+            <GroupBox Header="Settings" Margin="0,200,0,0" Name="Settingsbox" Visibility="Visible" Grid.RowSpan="2">
                 <Grid>
                     <Button Content="Back" HorizontalAlignment="Left" Margin="214,-116,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="Button_Back" />
+                    <Label Content="Selecteer een COM-poort" HorizontalAlignment="Left" Margin="197,24,0,0" VerticalAlignment="Top"/>
+                    <ComboBox Name="cbxComPorts" Margin="206,64,207,164" SelectionChanged="cbxComPorts_SelectionChanged"/>
+
                 </Grid>
             </GroupBox>
         </Grid>
