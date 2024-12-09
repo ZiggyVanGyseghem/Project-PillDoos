@@ -6,8 +6,20 @@
         xmlns:local="clr-namespace:PROJECT_PILLENDOOS"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <!--<Viewbox Stretch="Uniform">-->
+
     <Grid>
+
+
+        <Button Content="Start" HorizontalAlignment="Center" VerticalAlignment="Top" Height="25" Width="100" Click="Button_Start" Margin="0,127,0,0"/>
+        <Button Content="Settings" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="100" Click="Button_Settings"/>
+
+
+    </Grid>
+
+
+
+    <!--<Viewbox Stretch="Uniform">-->
+    <!--<Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="19*"/>
             <ColumnDefinition Width="31*"/>
@@ -26,7 +38,6 @@
         <Ellipse HorizontalAlignment="Left" Height="100" Margin="96,313,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED3" Grid.Column="1"/>
         <Ellipse HorizontalAlignment="Left" Height="100" Margin="258,313,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED4" Grid.Column="1"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="152,217,0,0" VerticalAlignment="Top"/>
-
-    </Grid>
+    </Grid>-->
     <!--</Viewbox>-->
 </Window>

@@ -25,17 +25,28 @@ namespace PROJECT_PILLENDOOS
             timer.Tick += Timer_Tick;
 
         }
-        
         private void Timer_Tick(object? sender, EventArgs e)
         {
             DateTime currentTime = DateTime.Now;
             string time = currentTime.ToString("HH:mm:ss");
-            LBLTime.Content = time;
-            LED1.Fill = new SolidColorBrush(Colors.Red);
-            LED2.Fill = new SolidColorBrush(Colors.Red);
-            LED3.Fill = new SolidColorBrush(Colors.Red);
-            LED4.Fill = new SolidColorBrush(Colors.Red);
+            //LBLTime.Content = time;
+            //LED1.Fill = new SolidColorBrush(Colors.Red);
+            //LED2.Fill = new SolidColorBrush(Colors.Red);
+            //LED3.Fill = new SolidColorBrush(Colors.Red);
+            //LED4.Fill = new SolidColorBrush(Colors.Red);
 
         }
+        private void Button_Start(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Settings(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+       
     }
 }
