@@ -38,6 +38,9 @@ namespace PROJECT_PILLENDOOS
         }
         private void Button_Start(object sender, RoutedEventArgs e)
         {
+            Button_Start.hide();
+
+
 
         }
 
