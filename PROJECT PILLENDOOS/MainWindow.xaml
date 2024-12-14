@@ -84,6 +84,10 @@
                     <Label Content="Minutes" HorizontalAlignment="Left" Margin="123,25,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8" Grid.Column="1"/>
                     <Label Content="Hours" HorizontalAlignment="Left" Margin="267,27,0,0" VerticalAlignment="Top" Height="19" Width="46" FontSize="8" Grid.Column="1"/>
                     <Label Content="Minutes" HorizontalAlignment="Left" Margin="333,27,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8" Grid.Column="1"/>
+                    <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="125,86,0,0" VerticalAlignment="Top"/>
+                    <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="308,101,0,0" VerticalAlignment="Top"/>
+                    <CheckBox Grid.Column="1" Content="CheckBox" HorizontalAlignment="Left" Margin="80,86,0,0" VerticalAlignment="Top"/>
+                    <CheckBox Grid.Column="1" Content="CheckBox" HorizontalAlignment="Left" Margin="298,86,0,0" VerticalAlignment="Top"/>
 
                 </Grid>
             </GroupBox>

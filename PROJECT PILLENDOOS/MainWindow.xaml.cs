@@ -94,8 +94,7 @@ namespace PROJECT_PILLENDOOS
                     SendSerialData(5);
                 }
 
-                if (hour == Convert.ToInt32(Hbox2.SelectedItem))
-                {
+                if (hour == Convert.ToInt32(Hbox2.SelectedItem)) 
                     SendSerialData(2);
                     SendSerialData(5);
                 }
@@ -243,7 +242,11 @@ namespace PROJECT_PILLENDOOS
 
         private void Window_Unloaded(object sender, RoutedEventArgs e)
         {
+            _serialPort.Close();
+            _serialPort.Dispose();
+            _serialPort.Open();
             SendSerialData(0);
+            
         }
         private void SendSerialData(byte data)
         {
