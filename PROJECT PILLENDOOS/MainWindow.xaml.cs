@@ -55,8 +55,9 @@ namespace PROJECT_PILLENDOOS
 
             // Bind the data context for the ComboBox
             this.DataContext = this;
+            
+            
 
-         
 
 
         }
@@ -76,7 +77,12 @@ namespace PROJECT_PILLENDOOS
 
             check = !check;
 
-           
+            bool Sound1 = S1?.IsChecked == true;
+            bool Sound2 = S2?.IsChecked == true;
+            bool Sound3 = S3?.IsChecked == true;
+            bool Sound4 = S4?.IsChecked == true;
+
+
             if (!check)
             {
                 byte data = 0;
@@ -86,35 +92,54 @@ namespace PROJECT_PILLENDOOS
             }
             // dont forget to addd the minutes back
 
-            if (check == true )
+            if (check == true)
             {
-                if (hour == Convert.ToInt32(Hbox1.SelectedItem))
+                if (hour == Convert.ToInt32(Hbox1.SelectedItem) && minute == Convert.ToInt32(Mbox1.SelectedItem) && Sound1 == true)
                 {
                     SendSerialData(1);
                     SendSerialData(5);
                 }
+                if (hour == Convert.ToInt32(Hbox1.SelectedItem) && minute == Convert.ToInt32(Mbox1.SelectedItem) && Sound1 == false)
+                {
+                    SendSerialData(1);
+                }
 
-                if (hour == Convert.ToInt32(Hbox2.SelectedItem)) 
+
+
+                if (hour == Convert.ToInt32(Hbox2.SelectedItem) && minute == Convert.ToInt32(Mbox2.SelectedItem) && Sound2 == true)
+                {
                     SendSerialData(2);
                     SendSerialData(5);
                 }
+                if (hour == Convert.ToInt32(Hbox2.SelectedItem) && minute == Convert.ToInt32(Mbox2.SelectedItem) && Sound2 == false)
+                {
+                    SendSerialData(2);
+                }
 
-                if (hour == Convert.ToInt32(Hbox3.SelectedItem))
+
+
+                if (hour == Convert.ToInt32(Hbox3.SelectedItem) && minute == Convert.ToInt32(Mbox3.SelectedItem) && Sound3 == true)
                 {
                     SendSerialData(3);
                     SendSerialData(5);
                 }
+                if (hour == Convert.ToInt32(Hbox3.SelectedItem) && minute == Convert.ToInt32(Mbox3.SelectedItem) && Sound3 == false)
+                {
+                    SendSerialData(3);
+                }
 
-                if (hour == Convert.ToInt32(Hbox4.SelectedItem))
+
+                if (hour == Convert.ToInt32(Hbox4.SelectedItem) && minute == Convert.ToInt32(Mbox4.SelectedItem) && Sound4 == true)
                 {
                     SendSerialData(4);
                     SendSerialData(5);
                 }
+                if (hour == Convert.ToInt32(Hbox4.SelectedItem) && minute == Convert.ToInt32(Mbox4.SelectedItem) && Sound4 == false)
+                {
+                    SendSerialData(4);
+
+                }
             }
-
-           
-
-
         }
         private void Button_Start(object sender, RoutedEventArgs e)
         {

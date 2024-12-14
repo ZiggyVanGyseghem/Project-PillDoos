@@ -69,25 +69,16 @@
                     <Ellipse HorizontalAlignment="Left" Height="10" Margin="318,57,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" Fill="Black" Grid.Column="1"/>
                     <Label Content="Hours" HorizontalAlignment="Left" Margin="71,25,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8"></Label>
                     <Label Content="Minutes" HorizontalAlignment="Left" Margin="140,25,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8"/>
-                    <Label Content="Hours" HorizontalAlignment="Left" Margin="282,25,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8" RenderTransformOrigin="0.5,0.5">
-                        <Label.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform AngleX="0.445"/>
-                                <RotateTransform/>
-                                <TranslateTransform X="0.089"/>
-                            </TransformGroup>
-                        </Label.RenderTransform>
-                    </Label>
+                    <Label Content="Hours" HorizontalAlignment="Left" Margin="282,25,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8"/>
                     <Label Content="Minutes" HorizontalAlignment="Left" Margin="348,25,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8"/>
                     <Label Content="Hours" HorizontalAlignment="Left" Margin="57,25,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8" Grid.Column="1"/>
                     <Label Content="Minutes" HorizontalAlignment="Left" Margin="123,25,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8" Grid.Column="1"/>
                     <Label Content="Hours" HorizontalAlignment="Left" Margin="267,27,0,0" VerticalAlignment="Top" Height="19" Width="46" FontSize="8" Grid.Column="1"/>
                     <Label Content="Minutes" HorizontalAlignment="Left" Margin="333,27,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8" Grid.Column="1"/>
-                    <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="125,86,0,0" VerticalAlignment="Top"/>
-                    <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="308,101,0,0" VerticalAlignment="Top"/>
-                    <CheckBox Grid.Column="1" Content="CheckBox" HorizontalAlignment="Left" Margin="80,86,0,0" VerticalAlignment="Top"/>
-                    <CheckBox Grid.Column="1" Content="CheckBox" HorizontalAlignment="Left" Margin="298,86,0,0" VerticalAlignment="Top"/>
+                    <CheckBox Content="Sound" HorizontalAlignment="Left" Margin="95,82,0,0" VerticalAlignment="Top" Name="S1"/>
+                    <CheckBox Content="Sound" HorizontalAlignment="Left" Margin="305,82,0,0" VerticalAlignment="Top" Name="S2"/>
+                    <CheckBox Grid.Column="1" Content="Sound" HorizontalAlignment="Left" Margin="80,82,0,0" VerticalAlignment="Top" Name="S3"/>
+                    <CheckBox Grid.Column="1" Content="Sound" HorizontalAlignment="Left" Margin="290,82,0,0" VerticalAlignment="Top" Name="S4"/>
 
                 </Grid>
             </GroupBox>
