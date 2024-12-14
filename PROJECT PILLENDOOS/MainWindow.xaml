@@ -47,10 +47,6 @@
                     <Label Content="Tweede box" Margin="295,10,53,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.491,0.206"/>
                     <Label Content="Derde box" HorizontalAlignment="Left" Margin="80,9,0,209" RenderTransformOrigin="0.488,0.526" Grid.Column="1" Width="68"/>
                     <Label Content="Vierde box" HorizontalAlignment="Left" Margin="290,10,0,208" Grid.Column="1" Width="68"/>
-                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="79,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" x:Name="LED1"/>
-                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="288,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" x:Name="LED2"/>
-                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="63,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" x:Name="LED3" Grid.Column="1"/>
-                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="274,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" x:Name="LED4" Grid.Column="1"/>
                     <Button Content="Back" HorizontalAlignment="Left" Margin="381,-160,0,0" VerticalAlignment="Top"  Height="25" Width="100" Click="Button_Back" RenderTransformOrigin="0.504,0.543" Grid.ColumnSpan="2"/>
                     <Button Content="Confirm" HorizontalAlignment="Left" Margin="311,0,0,0" VerticalAlignment="Center" Height="20" Width="53" Click="Button_C2"/>
                     <Button Content="Confirm" HorizontalAlignment="Left" Margin="88,0,0,0" VerticalAlignment="Center" Grid.Column="1" Height="20" Width="52" Click="Button_C3"/>

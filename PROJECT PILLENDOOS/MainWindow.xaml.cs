@@ -18,6 +18,8 @@ namespace PROJECT_PILLENDOOS
     /// Interaction logic for MainWindow.xaml
      public partial class MainWindow : Window
     {
+        private bool check = false;
+        
         public List<string> Minutes { get; set; }
         public List<string> Hours { get; set; }
 
@@ -26,15 +28,12 @@ namespace PROJECT_PILLENDOOS
         {
             InitializeComponent();
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(500);
+            timer.Interval = TimeSpan.FromMilliseconds(1000);
             timer.Start();
             timer.Tick += Timer_Tick;
             
-            DispatcherTimer timer_ = new DispatcherTimer();
-            timer_.Interval = TimeSpan.FromMilliseconds(1000);
-            timer_.Start();
-            timer_.Tick += Timer__Tick;
-
+            
+            
 
 
 
@@ -57,19 +56,14 @@ namespace PROJECT_PILLENDOOS
             // Bind the data context for the ComboBox
             this.DataContext = this;
 
+         
 
 
-        }
-
-        private void Timer__Tick(object? sender, EventArgs e)
-        {
-          
-            byte data = 0;
-            if ((_serialPort != null) && (_serialPort.IsOpen))
-                _serialPort.Write(new byte[] { data }, 0, 1);
         }
 
         
+
+
 
         private void Timer_Tick(object? sender, EventArgs e)
         {
@@ -79,39 +73,44 @@ namespace PROJECT_PILLENDOOS
             int minute = currentTime.Minute;
             int hour = currentTime.Hour;
             LBLTime.Content = time;
-            
 
-            // Check if the current time is equal to the time set in the ComboBox
-            if (hour == Convert.ToInt32(Hbox1.SelectedItem))
+            check = !check;
+
+           
+            if (!check)
             {
-                byte data = 1;
-
+                byte data = 0;
                 if ((_serialPort != null) && (_serialPort.IsOpen))
                     _serialPort.Write(new byte[] { data }, 0, 1);
+                return; 
             }
+            // dont forget to addd the minutes back
 
-            if (hour == Convert.ToInt32(Hbox2.SelectedItem))
+            if (check == true )
             {
-                byte data = 2;
+                if (hour == Convert.ToInt32(Hbox1.SelectedItem))
+                {
+                    SendSerialData(1);
+                    SendSerialData(5);
+                }
 
-                if ((_serialPort != null) && (_serialPort.IsOpen))
-                    _serialPort.Write(new byte[] { data }, 0, 1);
-            }
+                if (hour == Convert.ToInt32(Hbox2.SelectedItem))
+                {
+                    SendSerialData(2);
+                    SendSerialData(5);
+                }
 
-            if (hour == Convert.ToInt32(Hbox3.SelectedItem))
-            {
-                byte data = 3;
+                if (hour == Convert.ToInt32(Hbox3.SelectedItem))
+                {
+                    SendSerialData(3);
+                    SendSerialData(5);
+                }
 
-                if ((_serialPort != null) && (_serialPort.IsOpen))
-                    _serialPort.Write(new byte[] { data }, 0, 1);
-            }
-
-            if (hour == Convert.ToInt32(Hbox4.SelectedItem))
-            {
-                byte data = 4;
-
-                if ((_serialPort != null) && (_serialPort.IsOpen))
-                    _serialPort.Write(new byte[] { data }, 0, 1);
+                if (hour == Convert.ToInt32(Hbox4.SelectedItem))
+                {
+                    SendSerialData(4);
+                    SendSerialData(5);
+                }
             }
 
            
@@ -244,7 +243,14 @@ namespace PROJECT_PILLENDOOS
 
         private void Window_Unloaded(object sender, RoutedEventArgs e)
         {
-            
+            SendSerialData(0);
+        }
+        private void SendSerialData(byte data)
+        {
+            if ((_serialPort != null) && (_serialPort.IsOpen))
+            {
+                _serialPort.Write(new byte[] { data }, 0, 1);
+            }
         }
     }
 }
