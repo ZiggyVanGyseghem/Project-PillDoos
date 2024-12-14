@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PROJECT_PILLENDOOS"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Unloaded="Window_Unloaded">
 
     <Viewbox Stretch="Uniform">
-        <Grid Width="540">
+        <Grid Width="900">
             <Grid.RowDefinitions>
                 <RowDefinition Height="307*"/>
                 <RowDefinition Height="170*"/>
@@ -21,38 +21,77 @@
             </GroupBox>
 
 
-            <GroupBox Header="Start" Margin="0,200,0,0" Name="Start3" Visibility="Hidden">
-                <Grid Margin="0,0,-12,0">
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="43,115,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.629,0.614"/>
-                    <Label Content="Eerste box" HorizontalAlignment="Left" Height="26" Margin="29,17,0,0" VerticalAlignment="Top" Width="68"/>
-                    <Label Content="Tweede box" HorizontalAlignment="Left" Margin="155,17,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Derde box" HorizontalAlignment="Left" Margin="294,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.536,0.509"/>
-                    <Label Content="Vierde box" HorizontalAlignment="Left" Margin="433,17,0,0" VerticalAlignment="Top"/>
-                    <Label Content="" HorizontalAlignment="Left" Height="32" Margin="438,0,0,0" VerticalAlignment="Top" Width="58" Name="LBLTime" Grid.Column="1"/>
-                    <TextBox HorizontalAlignment="Left" Margin="132,48,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Margin="267,48,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Margin="3,48,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Margin="407,48,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="13,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED1"/>
-                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="142,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED2"/>
-                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="277,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED3"/>
-                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="417,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Name="LED4"/>
-                    <Button Content="Back" HorizontalAlignment="Left" Margin="214,-123,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="Button_Back" RenderTransformOrigin="0.504,0.543"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="172,115,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="307,115,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="447,0,0,0" VerticalAlignment="Center"/>
-                </Grid>
-            </GroupBox>
 
 
-            <GroupBox Header="Settings" Margin="0,200,0,0" Name="Settingsbox" Visibility="Visible" Grid.RowSpan="2">
+
+            <GroupBox Header="Settings" Margin="0,200,0,0" Name="Settingsbox" Visibility="Hidden" Grid.RowSpan="2">
                 <Grid>
-                    <Button Content="Back" HorizontalAlignment="Left" Margin="214,-116,0,0" VerticalAlignment="Top" Height="25" Width="100" Click="Button_Back" />
+                    <Button Content="Back" HorizontalAlignment="Center" Margin="0,-121,0,0" VerticalAlignment="Top"  Height="25" Width="100" Click="Button_Back" />
                     <Label Content="Selecteer een COM-poort" HorizontalAlignment="Left" Margin="197,24,0,0" VerticalAlignment="Top"/>
-                    <ComboBox Name="cbxComPorts" Margin="206,64,207,164" SelectionChanged="cbxComPorts_SelectionChanged"/>
+                    <ComboBox Name="cbxComPorts" Margin="206,64,207,164" SelectionChanged="cbxComPorts_SelectionChanged" ></ComboBox>
+                    <Button Content="Refresh" HorizontalAlignment="Left" Margin="206,142,0,0" VerticalAlignment="Top" Width="75" Click="Button_Refresh"/>
 
                 </Grid>
             </GroupBox>
+
+
+
+            <GroupBox Header="Start" Name="StartGroupBox" Margin="10" Visibility="Visible">
+                <Grid Margin="2,225,-2,-6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Confirm" HorizontalAlignment="Left" Margin="102,0,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.629,0.614" Height="20" Width="54" Click="Button_C1"/>
+                    <Label Content="Eerste box" HorizontalAlignment="Left" Height="26" Margin="95,10,0,0" VerticalAlignment="Top" Width="68"/>
+                    <Label Content="Tweede box" Margin="295,10,53,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.491,0.206"/>
+                    <Label Content="Derde box" HorizontalAlignment="Left" Margin="80,9,0,209" RenderTransformOrigin="0.488,0.526" Grid.Column="1" Width="68"/>
+                    <Label Content="Vierde box" HorizontalAlignment="Left" Margin="290,10,0,208" Grid.Column="1" Width="68"/>
+                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="79,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" x:Name="LED1"/>
+                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="288,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" x:Name="LED2"/>
+                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="63,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" x:Name="LED3" Grid.Column="1"/>
+                    <Ellipse HorizontalAlignment="Left" Height="100" Margin="274,144,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" x:Name="LED4" Grid.Column="1"/>
+                    <Button Content="Back" HorizontalAlignment="Left" Margin="381,-160,0,0" VerticalAlignment="Top"  Height="25" Width="100" Click="Button_Back" RenderTransformOrigin="0.504,0.543" Grid.ColumnSpan="2"/>
+                    <Button Content="Confirm" HorizontalAlignment="Left" Margin="311,0,0,0" VerticalAlignment="Center" Height="20" Width="53" Click="Button_C2"/>
+                    <Button Content="Confirm" HorizontalAlignment="Left" Margin="88,0,0,0" VerticalAlignment="Center" Grid.Column="1" Height="20" Width="52" Click="Button_C3"/>
+                    <Button Content="Confirm" HorizontalAlignment="Left" Margin="298,0,0,0" VerticalAlignment="Center" Grid.Column="1" Height="20" Width="52" Click="Button_C4"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="71,45,0,0" VerticalAlignment="Top" Width="46" Name="Hbox1" ItemsSource="{Binding Hours}" />
+                    <ComboBox HorizontalAlignment="Left" Margin="140,45,0,0" VerticalAlignment="Top" Width="46" Name="Mbox1" ItemsSource="{Binding Minutes}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="282,45,0,0" VerticalAlignment="Top" Width="46" Name="Hbox2" ItemsSource="{Binding Hours}" />
+                    <ComboBox HorizontalAlignment="Left" Margin="348,45,0,0" VerticalAlignment="Top" Width="46" Name="Mbox2" ItemsSource="{Binding Minutes}"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="57,45,0,0" VerticalAlignment="Top" Width="46" Name="Hbox3" ItemsSource="{Binding Hours}" />
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="123,45,0,0" VerticalAlignment="Top" Width="46" Name="Mbox3" ItemsSource="{Binding Minutes}"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="267,46,0,0" VerticalAlignment="Top" Width="46" Name="Hbox4" ItemsSource="{Binding Hours}" />
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="333,46,0,0" VerticalAlignment="Top" Width="46" Name="Mbox4" ItemsSource="{Binding Minutes}"/>
+                    <Ellipse HorizontalAlignment="Left" Height="10" Margin="124,45,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" Fill="Black"/>
+                    <Ellipse HorizontalAlignment="Left" Height="10" Margin="124,57,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" Fill="Black"/>
+                    <Ellipse HorizontalAlignment="Left" Height="10" Margin="333,45,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" Fill="Black"/>
+                    <Ellipse HorizontalAlignment="Left" Height="10" Margin="108,45,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" Fill="Black" Grid.Column="1"/>
+                    <Ellipse HorizontalAlignment="Left" Height="10" Margin="318,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" Fill="Black" Grid.Column="1"/>
+                    <Ellipse HorizontalAlignment="Left" Height="10" Margin="333,57,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" Fill="Black"/>
+                    <Ellipse HorizontalAlignment="Left" Height="10" Margin="108,56,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" Fill="Black" Grid.Column="1"/>
+                    <Ellipse HorizontalAlignment="Left" Height="10" Margin="318,57,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" Fill="Black" Grid.Column="1"/>
+                    <Label Content="Hours" HorizontalAlignment="Left" Margin="71,25,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8"></Label>
+                    <Label Content="Minutes" HorizontalAlignment="Left" Margin="140,25,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8"/>
+                    <Label Content="Hours" HorizontalAlignment="Left" Margin="282,25,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.445"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.089"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label Content="Minutes" HorizontalAlignment="Left" Margin="348,25,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8"/>
+                    <Label Content="Hours" HorizontalAlignment="Left" Margin="57,25,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8" Grid.Column="1"/>
+                    <Label Content="Minutes" HorizontalAlignment="Left" Margin="123,25,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8" Grid.Column="1"/>
+                    <Label Content="Hours" HorizontalAlignment="Left" Margin="267,27,0,0" VerticalAlignment="Top" Height="19" Width="46" FontSize="8" Grid.Column="1"/>
+                    <Label Content="Minutes" HorizontalAlignment="Left" Margin="333,27,0,0" VerticalAlignment="Top" Height="20" Width="46" FontSize="8" Grid.Column="1"/>
+
+                </Grid>
+            </GroupBox>
+            <Label Content="" HorizontalAlignment="Left" Margin="820,10,0,0" VerticalAlignment="Top" Height="36" Width="98" Name="LBLTime"></Label>
         </Grid>
     </Viewbox>
 </Window>
