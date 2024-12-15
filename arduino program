@@ -1,1 +1,74 @@
+// Define pins for the LEDs
+const int ledPin1 = 6;
+const int ledPin2 = 5;
+const int ledPin3 = 4;
+const int ledPin4 = 3;
+const int Buzzer  = 7;
 
+void setup() {
+    // Initialize the LED pins as outputs
+    pinMode(ledPin1, OUTPUT);
+    pinMode(ledPin2, OUTPUT);
+    pinMode(ledPin3, OUTPUT);
+    pinMode(ledPin4, OUTPUT);
+    pinMode(Buzzer, OUTPUT);
+
+    // Initialize serial communication at 9600 baud
+    Serial.begin(9600);
+}
+
+void loop() {
+    // Check if data is available to read
+    if (Serial.available() > 0) {
+        // Read the incoming byte
+        byte receivedData = Serial.read();
+
+        // Use a switch statement to handle the data
+        switch (receivedData) {
+            case 0: 
+                // Turn all LEDs off
+                digitalWrite(ledPin1, LOW);
+                digitalWrite(ledPin2, LOW);
+                digitalWrite(ledPin3, LOW);
+                digitalWrite(ledPin4, LOW);
+                digitalWrite(Buzzer, LOW);
+                break;
+
+            case 1:
+                // Turn on LED 1
+                digitalWrite(ledPin1, HIGH);
+                break;
+
+            case 2:
+                // Turn on LED 2
+                digitalWrite(ledPin2, HIGH);
+                break;
+
+            case 3:
+                // Turn on LED 3
+                digitalWrite(ledPin3, HIGH);
+                break;
+
+            case 4:
+                // Turn on LED 4
+                digitalWrite(ledPin4, HIGH);
+                break;
+
+              case 5:
+              // Turn on Buzzer
+              digitalWrite(Buzzer, HIGH);
+              break;
+
+
+            default:
+                // Turn on all LEDs for any other value
+                digitalWrite(ledPin1, HIGH);
+                digitalWrite(ledPin2, HIGH);
+                digitalWrite(ledPin3, HIGH);
+                digitalWrite(ledPin4, HIGH);
+                digitalWrite(Buzzer, HIGH);
+
+                break;
+        }
+    }
+}
