@@ -7,11 +7,12 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-
+using PROJECT_PILLENDOOS;
 namespace PROJECT_PILLENDOOS
 {
     /// <summary>
@@ -19,7 +20,6 @@ namespace PROJECT_PILLENDOOS
      public partial class MainWindow : Window
     {
         private bool check = false;
-        
         public List<string> Minutes { get; set; }
         public List<string> Hours { get; set; }
 
@@ -31,122 +31,74 @@ namespace PROJECT_PILLENDOOS
             timer.Interval = TimeSpan.FromMilliseconds(1000);
             timer.Start();
             timer.Tick += Timer_Tick;
-            
-            
-            
-
-
-
+  
             _serialPort = new SerialPort();
-
+            _serialPort.BaudRate = 9600;
+            _serialPort.DataBits = 8;
             // voor mijn Seconde lijst
+
             Minutes = new List<string>();
             for (int i = 0; i < 60; i++)
             {
                 Minutes.Add(i.ToString("D2")); // Format numbers as two-digit strings
-            
+                if(i == 59)
+                {
+                    Minutes.Add("None");
+                    // make the box select none
+                    Mbox1.SelectedIndex = 60;
+                    Mbox2.SelectedIndex = 60;
+                    Mbox3.SelectedIndex = 60;
+                    Mbox4.SelectedIndex = 60;
+                }
             }
+
             // voor mijn Uur lijst
             Hours = new List<string>();
-            for (int i = 1; i <= 24; i++)
+            for (int i = 0; i <= 23; i++)
             {
                 Hours.Add(i.ToString("D2")); // Format numbers as two-digit strings
+                if (i == 23)
+                {
+                    Hours.Add("None");
+                    // make the box select none
+                    Hbox1.SelectedIndex = 24;
+                    Hbox2.SelectedIndex = 24;
+                    Hbox3.SelectedIndex = 24;
+                    Hbox4.SelectedIndex = 24;
+                }
             }
-
             // Bind the data context for the ComboBox
             this.DataContext = this;
-            
-            
-
-
-
         }
-
-        
-
-
 
         private void Timer_Tick(object? sender, EventArgs e)
         {
+
             
             DateTime currentTime = DateTime.Now;
             string time = currentTime.ToString("HH:mm");
-            int minute = currentTime.Minute;
-            int hour = currentTime.Hour;
             LBLTime.Content = time;
-
             check = !check;
-
-            bool Sound1 = S1?.IsChecked == true;
-            bool Sound2 = S2?.IsChecked == true;
-            bool Sound3 = S3?.IsChecked == true;
-            bool Sound4 = S4?.IsChecked == true;
-
 
             if (!check)
             {
-                byte data = 0;
-                if ((_serialPort != null) && (_serialPort.IsOpen))
-                    _serialPort.Write(new byte[] { data }, 0, 1);
-                return; 
+                AlarmProcessor _alarmProcessor = new AlarmProcessor(SendSerialData);
+                _alarmProcessor.Process(Hbox1, Mbox1, S1?.IsChecked == true, 1);
+                _alarmProcessor.Process(Hbox2, Mbox2, S2?.IsChecked == true, 2);
+                _alarmProcessor.Process(Hbox3, Mbox3, S3?.IsChecked == true, 3);
+                _alarmProcessor.Process(Hbox4, Mbox4, S4?.IsChecked == true, 4);
             }
-            // dont forget to addd the minutes back
-
-            if (check == true)
+            else
             {
-                if (hour == Convert.ToInt32(Hbox1.SelectedItem) && minute == Convert.ToInt32(Mbox1.SelectedItem) && Sound1 == true)
-                {
-                    SendSerialData(1);
-                    SendSerialData(5);
-                }
-                if (hour == Convert.ToInt32(Hbox1.SelectedItem) && minute == Convert.ToInt32(Mbox1.SelectedItem) && Sound1 == false)
-                {
-                    SendSerialData(1);
-                }
-
-
-
-                if (hour == Convert.ToInt32(Hbox2.SelectedItem) && minute == Convert.ToInt32(Mbox2.SelectedItem) && Sound2 == true)
-                {
-                    SendSerialData(2);
-                    SendSerialData(5);
-                }
-                if (hour == Convert.ToInt32(Hbox2.SelectedItem) && minute == Convert.ToInt32(Mbox2.SelectedItem) && Sound2 == false)
-                {
-                    SendSerialData(2);
-                }
-
-
-
-                if (hour == Convert.ToInt32(Hbox3.SelectedItem) && minute == Convert.ToInt32(Mbox3.SelectedItem) && Sound3 == true)
-                {
-                    SendSerialData(3);
-                    SendSerialData(5);
-                }
-                if (hour == Convert.ToInt32(Hbox3.SelectedItem) && minute == Convert.ToInt32(Mbox3.SelectedItem) && Sound3 == false)
-                {
-                    SendSerialData(3);
-                }
-
-
-                if (hour == Convert.ToInt32(Hbox4.SelectedItem) && minute == Convert.ToInt32(Mbox4.SelectedItem) && Sound4 == true)
-                {
-                    SendSerialData(4);
-                    SendSerialData(5);
-                }
-                if (hour == Convert.ToInt32(Hbox4.SelectedItem) && minute == Convert.ToInt32(Mbox4.SelectedItem) && Sound4 == false)
-                {
-                    SendSerialData(4);
-
-                }
+                byte data = 0;
+                SendSerialData(data);
             }
         }
+
         private void Button_Start(object sender, RoutedEventArgs e)
         {
             Controls.Visibility = Visibility.Hidden;
             StartGroupBox.Visibility = Visibility.Visible;
-
-
         }
 
         private void Button_Settings(object sender, RoutedEventArgs e)
@@ -168,45 +120,32 @@ namespace PROJECT_PILLENDOOS
             {
                 if (_serialPort.IsOpen)
                     _serialPort.Close();
-
                 if (cbxComPorts.SelectedItem.ToString() != "None")
                 {
                     _serialPort.PortName = cbxComPorts.SelectedItem.ToString();
                     _serialPort.Open();
-
                 }
-
             }
         }
 
         private void Button_Refresh(object sender, RoutedEventArgs e)
         {
-            // Temporarily disable SelectionChanged event
             cbxComPorts.SelectionChanged -= cbxComPorts_SelectionChanged;
-
-            // Refresh ComboBox
             cbxComPorts.IsEnabled = false;
             cbxComPorts.Items.Clear();
-
-            // Populate ComboBox with available COM ports
             cbxComPorts.Items.Add("None");
             foreach (string s in SerialPort.GetPortNames())
                 cbxComPorts.Items.Add(s);
-
-            cbxComPorts.SelectedIndex = 0; // Default selection to "None"
+            cbxComPorts.SelectedIndex = 0; 
             cbxComPorts.IsEnabled = true;
-
-            // Re-enable SelectionChanged event
             cbxComPorts.SelectionChanged += cbxComPorts_SelectionChanged;
-
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Settingsbox.Visibility = Visibility.Hidden;
             StartGroupBox.Visibility = Visibility.Hidden;
-            Controls.Visibility = Visibility.Visible;
-            
+            Controls.Visibility = Visibility.Visible; 
         }
 
         private void Button_C1(object sender, RoutedEventArgs e)
@@ -265,20 +204,19 @@ namespace PROJECT_PILLENDOOS
             }
         }
 
-        private void Window_Unloaded(object sender, RoutedEventArgs e)
-        {
-            _serialPort.Close();
-            _serialPort.Dispose();
-            _serialPort.Open();
-            SendSerialData(0);
-            
-        }
         private void SendSerialData(byte data)
         {
             if ((_serialPort != null) && (_serialPort.IsOpen))
             {
                 _serialPort.Write(new byte[] { data }, 0, 1);
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            SendSerialData(0);
+            _serialPort.Close();
+            _serialPort.Dispose();
         }
     }
 }

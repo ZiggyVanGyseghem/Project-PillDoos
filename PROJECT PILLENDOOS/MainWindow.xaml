@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PROJECT_PILLENDOOS"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Unloaded="Window_Unloaded">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing">
 
     <Viewbox Stretch="Uniform">
         <Grid Width="900">
@@ -51,14 +51,14 @@
                     <Button Content="Confirm" HorizontalAlignment="Left" Margin="311,0,0,0" VerticalAlignment="Center" Height="20" Width="53" Click="Button_C2"/>
                     <Button Content="Confirm" HorizontalAlignment="Left" Margin="88,0,0,0" VerticalAlignment="Center" Grid.Column="1" Height="20" Width="52" Click="Button_C3"/>
                     <Button Content="Confirm" HorizontalAlignment="Left" Margin="298,0,0,0" VerticalAlignment="Center" Grid.Column="1" Height="20" Width="52" Click="Button_C4"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="71,45,0,0" VerticalAlignment="Top" Width="46" Name="Hbox1" ItemsSource="{Binding Hours}" />
-                    <ComboBox HorizontalAlignment="Left" Margin="140,45,0,0" VerticalAlignment="Top" Width="46" Name="Mbox1" ItemsSource="{Binding Minutes}"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="282,45,0,0" VerticalAlignment="Top" Width="46" Name="Hbox2" ItemsSource="{Binding Hours}" />
-                    <ComboBox HorizontalAlignment="Left" Margin="348,45,0,0" VerticalAlignment="Top" Width="46" Name="Mbox2" ItemsSource="{Binding Minutes}"/>
-                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="57,45,0,0" VerticalAlignment="Top" Width="46" Name="Hbox3" ItemsSource="{Binding Hours}" />
-                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="123,45,0,0" VerticalAlignment="Top" Width="46" Name="Mbox3" ItemsSource="{Binding Minutes}"/>
-                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="267,46,0,0" VerticalAlignment="Top" Width="46" Name="Hbox4" ItemsSource="{Binding Hours}" />
-                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="333,46,0,0" VerticalAlignment="Top" Width="46" Name="Mbox4" ItemsSource="{Binding Minutes}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="55,45,0,0" VerticalAlignment="Top" Width="62" Name="Hbox1" ItemsSource="{Binding Hours}" />
+                    <ComboBox HorizontalAlignment="Left" Margin="140,45,0,0" VerticalAlignment="Top" Width="63" Name="Mbox1" ItemsSource="{Binding Minutes}"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="271,45,0,0" VerticalAlignment="Top" Width="57" Name="Hbox2" ItemsSource="{Binding Hours}" />
+                    <ComboBox HorizontalAlignment="Left" Margin="348,45,0,0" VerticalAlignment="Top" Width="60" Name="Mbox2" ItemsSource="{Binding Minutes}"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="45,45,0,0" VerticalAlignment="Top" Width="58" Name="Hbox3" ItemsSource="{Binding Hours}" />
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="123,45,0,0" VerticalAlignment="Top" Width="58" Name="Mbox3" ItemsSource="{Binding Minutes}"/>
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="247,46,0,0" VerticalAlignment="Top" Width="66" Name="Hbox4" ItemsSource="{Binding Hours}" />
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="333,46,0,0" VerticalAlignment="Top" Width="58" Name="Mbox4" ItemsSource="{Binding Minutes}"/>
                     <Ellipse HorizontalAlignment="Left" Height="10" Margin="124,45,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" Fill="Black"/>
                     <Ellipse HorizontalAlignment="Left" Height="10" Margin="124,57,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" Fill="Black"/>
                     <Ellipse HorizontalAlignment="Left" Height="10" Margin="333,45,0,0" Stroke="Black" VerticalAlignment="Top" Width="10" Fill="Black"/>
