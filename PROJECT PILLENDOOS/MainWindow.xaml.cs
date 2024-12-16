@@ -139,6 +139,8 @@ namespace PROJECT_PILLENDOOS
             cbxComPorts.SelectedIndex = 0; 
             cbxComPorts.IsEnabled = true;
             cbxComPorts.SelectionChanged += cbxComPorts_SelectionChanged;
+            SendSerialData(0);
+            _serialPort.Close();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -154,11 +156,13 @@ namespace PROJECT_PILLENDOOS
             {
                 Hbox1.IsEnabled = false;
                 Mbox1.IsEnabled = false;
+                S1.IsEnabled = false;
             }
             else
             {
                 Hbox1.IsEnabled = true;
                 Mbox1.IsEnabled = true;
+                S1.IsEnabled = true;
             }
         }
 
@@ -168,11 +172,13 @@ namespace PROJECT_PILLENDOOS
             {
                 Hbox2.IsEnabled = false;
                 Mbox2.IsEnabled = false;
+                S2.IsEnabled = false;
             }
             else
             {
                 Hbox2.IsEnabled = true;
                 Mbox2.IsEnabled = true;
+                S2.IsEnabled = true;
             }
         }
 
@@ -182,11 +188,13 @@ namespace PROJECT_PILLENDOOS
             {
                 Hbox3.IsEnabled = false;
                 Mbox3.IsEnabled = false;
+                S3.IsEnabled = false;
             }
             else
             {
                 Hbox3.IsEnabled = true;
                 Mbox3.IsEnabled = true;
+                S3.IsEnabled = true;
             }
         }
 
@@ -196,11 +204,13 @@ namespace PROJECT_PILLENDOOS
             {
                 Hbox4.IsEnabled = false;
                 Mbox4.IsEnabled = false;
+                S4.IsEnabled = false;
             }
             else
             {
                 Hbox4.IsEnabled = true;
                 Mbox4.IsEnabled = true;
+                S4.IsEnabled = true;
             }
         }
 
